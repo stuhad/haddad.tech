@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creamy Chorizo Pasta Recipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f7f5;
+            color: #333;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        header {
+            text-align: center;
+        }
+        .hero-image-placeholder {
+            background-color: #e0e0e0;
+            padding: 80px 20px;
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+        .recipe-title {
+            padding: 25px 40px 10px 40px;
+        }
+        .recipe-title h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 900;
+        }
+        .recipe-title h2 {
+            font-size: 1.6rem;
+            color: #7f8c8d;
+            margin: 5px 0 0 0;
+            font-weight: 400;
+        }
+        .recipe-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin: 20px 40px;
+        }
+        .meta-item {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .intro-text {
+            background-color: #fffbe0;
+            border: 1px solid #fcebb3;
+            padding: 20px;
+            margin: 0 40px 30px 40px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        main {
+            padding: 0 40px 40px 40px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+        }
+        .ingredients-column {
+            padding-right: 20px;
+            border-right: 1px solid #eee;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #fddc5c;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .ingredients-column h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .ingredients-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+        }
+        .ingredients-column li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            padding-left: 15px;
+            position: relative;
+        }
+        .ingredients-column li::before {
+            content: '•';
+            color: #fddc5c;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+        .info-box {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 25px;
+            font-size: 0.9rem;
+        }
+        .info-box h4 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        .instructions ol {
+            list-style: none;
+            padding: 0;
+            counter-reset: steps;
+        }
+        .instructions ol li {
+            counter-increment: steps;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 60px;
+            min-height: 40px;
+        }
+        .instructions ol li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #fddc5c;
+            line-height: 1;
+        }
+        .instructions li h4 {
+            font-size: 1.3rem;
+            margin: 0 0 8px 0;
+        }
+        .instructions li p {
+            margin: 0;
+            line-height: 1.7;
+        }
+        .step-image-placeholder {
+            width: 100%;
+            padding: 40px 0;
+            background-color: #f0f0f0;
+            text-align: center;
+            color: #aaa;
+            font-style: italic;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            .ingredients-column {
+                border-right: none;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+        @media (max-width: 600px) {
+            body { padding: 0; }
+            .container { border-radius: 0; }
+            .recipe-title { padding: 20px; }
+            .recipe-title h1 { font-size: 2.2rem; }
+            .recipe-title h2 { font-size: 1.3rem; }
+            .recipe-meta { flex-direction: column; gap: 10px; margin: 20px; }
+            .intro-text, main { padding: 20px; }
+            .instructions ol li { padding-left: 50px; }
+            .instructions ol li::before { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="hero-image-placeholder">
+                            </div>
+            <div class="recipe-title">
+                <h1>Creamy Chorizo Pasta</h1>
+                <h2>with Kale and Parmesan</h2>
+            </div>
+            <div class="recipe-meta">
+                <div class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <strong>Time:</strong> 30min
+                </div>
+                <div class="meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v2H2zM21 8H3v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8zM12 21v-8"></path><path d="M9 13h6"></path></svg>
+                    <strong>Portions:</strong> 2
+                </div>
+            </div>
+            <div class="intro-text">
+                <p>We know everyone's looking for even better value when it comes to cooking these days - enter our Savour & Save recipes! These all cost $1 less per portion compared to recipes from our core menu and offer a simpler dish style, which still has all that Marley Spoon deliciousness you know and love.</p>
+            </div>
+        </header>
+
+        <main>
+            <aside class="ingredients-column">
+                <h3>Ingredients</h3>
+                
+                <h4>What we send</h4>
+                <ul>
+                    <li>1 onion</li>
+                    <li>2 tomatoes</li>
+                    <li>1 garlic clove</li>
+                    <li>100g kale</li>
+                    <li>1 chorizo sausage</li>
+                    <li>5g Tuscan seasoning</li>
+                    <li>250ml cream</li>
+                    <li>penne pasta</li>
+                    <li>25g parmesan</li>
+                </ul>
+
+                <h4>What you'll require</h4>
+                <ul>
+                    <li>1 tsp olive oil</li>
+                </ul>
+
+                <h4>Utensils</h4>
+                <ul>
+                    <li>medium saucepan</li>
+                    <li>medium deep frypan</li>
+                    <li>slotted spoon</li>
+                    <li>fine grater</li>
+                </ul>
+
+                <div class="info-box">
+                    <h4>Allergens</h4>
+                    <p>Gluten (1), Milk (2), Sulphites (3), Wheat (4). May contain traces of other allergens.</p>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Nutrition per serving</h4>
+                    <p>Energy 1065kcal, Fat 66.1g, Carbs 85.0g, Protein 29.1g</p>
+                </div>
+            </aside>
+            
+            <section class="instructions">
+                <h3>Instructions</h3>
+                <ol>
+                    <li>
+                        <h4>Prep ingredients</h4>
+                        <p>Bring a medium saucepan of salted water to the boil for the pasta. Finely chop the onion and tomatoes. Crush or finely chop the garlic. Discard the tough stems from the kale and thinly slice the leaves. Finely chop the chorizo.</p>
+                         <div class="step-image-placeholder"></div>
+                    </li>
+                    <li>
+                        <h4>Cook chorizo</h4>
+                        <p>Put the chorizo in a cold medium deep frypan over medium-high heat and cook, stirring, for 5-6 mins until golden and crisp. Remove from the pan with a slotted spoon, leaving the flavoured oil in the pan. Cover to keep warm.</p>
+                        <div class="step-image-placeholder"></div>
+                    </li>
+                    <li>
+                        <h4>Simmer sauce</h4>
+                        <p>Heat 1 tsp olive oil in the same pan over medium heat. Cook the onion and tomato, stirring, for 6-7 mins until soft. Add the garlic and Tuscan seasoning and cook, stirring, for 1 min or until fragrant. Stir in the cream and cook, stirring occasionally, for 3 mins or until slightly reduced. Taste, then season with salt and pepper.</p>
+                        <div class="step-image-placeholder"></div>
+                    </li>
+                    <li>
+                        <h4>Cook pasta and kale</h4>
+                        <p>Meanwhile, cook the pasta in the pan of boiling water for 6 mins. Add the kale and cook for a further 4 mins or until the pasta is al dente and the kale is tender. Reserve 2 tbs cooking water, then drain the pasta and kale.</p>
+                        <div class="step-image-placeholder"></div>
+                    </li>
+                    <li>
+                        <h4>Grate parmesan</h4>
+                        <p>While the pasta is cooking, finely grate the parmesan.</p>
+                        <div class="step-image-placeholder"></div>
+                    </li>
+                    <li>
+                        <h4>Get ready to serve</h4>
+                        <p>Add the pasta and kale to the sauce. Add the reserved cooking water and stir constantly until the sauce coats the pasta. Taste, then season with salt and pepper. Divide the pasta among bowls and scatter over the chorizo and parmesan to serve.</p>
+                        <div class="step-image-placeholder"></div>
+                    </li>
+                </ol>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Customer Service: 02 6145 2910 | Email: contact@marleyspoon.com.au</p>
+        </footer>
+    </div>
+
+</body>
+</html>
